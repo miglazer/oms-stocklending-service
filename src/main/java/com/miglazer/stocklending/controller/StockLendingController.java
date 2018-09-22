@@ -1,7 +1,7 @@
 package com.miglazer.stocklending.controller;
 
 import com.miglazer.stocklending.data.Equity;
-import com.miglazer.stocklending.repository.StockLendingRepository;
+import com.miglazer.stocklending.service.StockLendingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,11 +14,11 @@ import java.util.List;
 public class StockLendingController {
 
     @Autowired
-    private StockLendingRepository stockLendingRepository;
+    private StockLendingService stockLendingService;
 
     @GetMapping(path = "/equities")
     public List<Equity> equities(){
-        return stockLendingRepository.equities();
+        return stockLendingService.equities();
     }
 
 }
